@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Row, Col, Image, Spinner, Alert } from "react-bootstrap";
+import ModalComponent from "./ModalComponent";
 
 class FilmComponent extends Component {
   state = {
@@ -8,6 +9,7 @@ class FilmComponent extends Component {
     hasError: false,
     errorMessage: "",
     showDetails: false,
+    selectedFilm: null,
   };
 
   fetchFilms = async (filmSearch) => {
@@ -49,12 +51,12 @@ class FilmComponent extends Component {
   }
 
   handleShowDetails = (film) => {
-    this.setState({ showModal: true });
+    this.setState({ showDetails: true, selectedFilm: film });
     console.log(film);
   };
 
   handleCloseDetails = () => {
-    this.setState({ showModal: false });
+    this.setState({ showDetails: false, selectedFilm: null });
   };
 
   render() {
@@ -87,6 +89,13 @@ class FilmComponent extends Component {
             </Col>
           ))}
         </Row>
+        {this.state.showDetails === true && (
+          <ModalComponent
+            show={this.state.showDetails}
+            handleClose={this.handleCloseDetails}
+            film={this.state.selectedFilm}
+          />
+        )}
       </>
     );
   }
