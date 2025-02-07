@@ -31,7 +31,9 @@ class App extends Component {
           {this.state.page === "home" && (
             <>
               <GenreComponent />
-              {this.state.searchFilm !== "" && <FilmComponent filmSearch={this.state.searchFilm} />}
+              {this.state.searchFilm !== "" && (
+                <FilmComponent key={this.state.searchFilm} filmSearch={this.state.searchFilm} />
+              )}
 
               <FilmComponent filmSearch="Batman" />
               <FilmComponent filmSearch="Superman" />

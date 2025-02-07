@@ -12,15 +12,18 @@ class SearchForm extends Component {
     this.setState((prevState) => ({ open: !prevState.open }));
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault(); // Previene il refresh della pagina
+    this.props.searchFilm({ searchFilm: this.state.searchValue });
+  };
+
   handleTextChange = (e) => {
-    const value = e.target.value;
-    this.setState({ searchValue: value });
-    this.props.searchFilm({ searchFilm: value });
+    this.setState({ searchValue: e.target.value });
   };
 
   render() {
     return (
-      <Form className="d-flex align-items-center" role="search">
+      <Form className="d-flex align-items-center" role="search" onSubmit={this.handleSubmit}>
         <Collapse in={this.state.open}>
           <div className="me-2">
             <Form.Control
