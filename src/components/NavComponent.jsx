@@ -1,26 +1,41 @@
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import { Search, Bell, PersonCircle } from "react-bootstrap-icons";
 import Logo from "./Logo";
 
 function NavComponent() {
   return (
-    <Navbar expand="lg" data-bs-theme="dark" bg="dark" variant="dark" style={{ backgroundColor: "#221f1f !important" }}>
+    <Navbar expand="lg" data-bs-theme="dark" variant="dark" style={{ backgroundColor: "#221f1f" }}>
       <Container fluid>
         <Navbar.Brand href="#home">
-          <Logo></Logo>
+          <Logo />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="#home" className="fw-bold">
+              Home
+            </Nav.Link>
+            <Nav.Link href="#shows" className="active fw-bold">
+              TV Shows
+            </Nav.Link>
+            <Nav.Link href="#movies" className="fw-bold">
+              Movies
+            </Nav.Link>
+            <Nav.Link href="#added" className="fw-bold">
+              Recently Added
+            </Nav.Link>
+            <Nav.Link href="#list" className="fw-bold">
+              My List
+            </Nav.Link>
           </Nav>
+          <div className="d-flex align-items-center gap-3">
+            <Search className="icons" />
+            <div id="kids" className="fw-bold">
+              KIDS
+            </div>
+            <Bell className="icons" />
+            <PersonCircle className="icons" />
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
