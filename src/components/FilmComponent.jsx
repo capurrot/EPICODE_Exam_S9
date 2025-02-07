@@ -92,7 +92,7 @@ class FilmComponent extends Component {
         {this.state.showDetails === true && (
           <ModalComponent
             show={this.state.showDetails}
-            handleClose={this.handleCloseDetails}
+            handleCloseDetails={this.handleCloseDetails}
             film={this.state.selectedFilm}
           />
         )}
