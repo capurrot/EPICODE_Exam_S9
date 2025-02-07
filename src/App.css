@@ -73,7 +73,29 @@ footer {
 
 .filmimg {
   width: 100%;
-  aspect-ratio: 2/1;
+  aspect-ratio: 16/9;
   object-fit: cover;
   object-position: center bottom;
+}
+
+.no-triangle::after {
+  display: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #3a3a3a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

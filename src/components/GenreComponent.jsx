@@ -6,11 +6,11 @@ const GenreComponent = () => {
     <div className="d-flex justify-content-between align-items-center mb-4">
       <div className="d-flex align-items-center">
         <h2 className="mb-0">TV Shows</h2>
-        <Dropdown as={ButtonGroup} className="ms-4 mt-1">
+        <Dropdown as={ButtonGroup} className="ms-4 mt-1" data-bs-theme="dark">
           <Dropdown.Toggle variant="secondary" size="sm" className="rounded-0" style={{ backgroundColor: "#221f1f" }}>
             Genres
           </Dropdown.Toggle>
-          <Dropdown.Menu>
+          <Dropdown.Menu style={{ backgroundColor: "#221f1f" }}>
             <Dropdown.Item href="#">Comedy</Dropdown.Item>
             <Dropdown.Item href="#">Drama</Dropdown.Item>
             <Dropdown.Item href="#">Thriller</Dropdown.Item>

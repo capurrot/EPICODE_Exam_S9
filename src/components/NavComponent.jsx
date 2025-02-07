@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, Dropdown, ButtonGroup } from "react-bootstrap";
 import { Search, Bell, PersonCircle } from "react-bootstrap-icons";
 import Logo from "./LogoComponent";
 
@@ -34,7 +34,19 @@ function NavComponent() {
               KIDS
             </div>
             <Bell className="icons" />
-            <PersonCircle className="icons" />
+            <Dropdown as={ButtonGroup}>
+              <Dropdown.Toggle
+                size="sm"
+                className="rounded-0 no-triangle p-0"
+                style={{ backgroundColor: "#221f1f", border: "transparent" }}
+              >
+                <PersonCircle className="icons" />
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="dropdown-menu-end" style={{ backgroundColor: "#221f1f" }}>
+                <Dropdown.Item href="#">Profile</Dropdown.Item>
+                <Dropdown.Item href="#">Settings</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
         </Navbar.Collapse>
       </Container>
