@@ -4,27 +4,35 @@ import FilmComponent from "./components/FilmComponent";
 import FooterComponent from "./components/FooterComponent";
 import GenreComponent from "./components/GenreComponent";
 import NavComponent from "./components/NavComponent";
-{
-  /* import ProfileComponent from "./components/ProfileComponent"; */
-}
+import { Component } from "react";
+import ProfileComponent from "./components/ProfileComponent";
 
-function App() {
-  return (
-    <>
-      <NavComponent />
-      <Container fluid className="px-4">
-        <GenreComponent />
-        <FilmComponent filmSearch="Batman" />
-        <FilmComponent filmSearch="Superman" />
-        <FilmComponent filmSearch="Star+Trek" />
-        <FooterComponent />
-      </Container>
-      {/*
-      Commento la parte relativa al componente Profile da terminare 
-      
-      <ProfileComponent />*/}
-    </>
-  );
+class App extends Component {
+  state = {
+    page: "home",
+  };
+
+  render() {
+    return (
+      <>
+        <NavComponent />
+        <Container fluid className="px-4">
+          {this.state.page === "home" && (
+            <>
+              <GenreComponent />
+              <FilmComponent filmSearch="Batman" />
+              <FilmComponent filmSearch="Superman" />
+              <FilmComponent filmSearch="Star+Trek" />
+            </>
+          )}
+
+          {this.state.page === "profile" && <ProfileComponent />}
+
+          <FooterComponent />
+        </Container>
+      </>
+    );
+  }
 }
 
 export default App;
