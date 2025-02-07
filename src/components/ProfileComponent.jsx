@@ -1,7 +1,7 @@
 import { Container, Row, Col, Button, Form, Dropdown, DropdownButton } from "react-bootstrap";
 import { PersonCircle } from "react-bootstrap-icons";
 
-const ProfileComponent = () => {
+const ProfileComponent = (props) => {
   return (
     <Container className="text-light" data-bs-theme="dark" style={{ width: "50%" }}>
       <h1 className="display-5 fw-bold mb-0 text-white">Edit Profile</h1>
@@ -43,10 +43,15 @@ const ProfileComponent = () => {
       </Row>
       <hr className="mb-3" />
       <div style={{ display: "flex", gap: "1rem" }}>
-        <Button variant="light" className="fw-bold rounded-0 border px-4">
+        <Button
+          variant="light"
+          className="fw-bold rounded-0 border px-4"
+          /* Per ora imposto lo spostamento su home fino a che non servirà per altro */
+          onClick={() => props.updateState({ page: "home" })}
+        >
           SAVE
         </Button>
-        <Button variant="dark" className="rounded-0 border px-3">
+        <Button variant="dark" className="rounded-0 border px-3" onClick={() => props.updateState({ page: "home" })}>
           CANCEL
         </Button>
         <Button variant="dark" className="rounded-0 border px-3">

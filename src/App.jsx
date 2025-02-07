@@ -12,10 +12,16 @@ class App extends Component {
     page: "home",
   };
 
+  updateState = (page) => {
+    this.setState(page);
+  };
+
   render() {
     return (
       <>
-        <NavComponent />
+        {this.state.page === "home" && <NavComponent updateState={this.updateState} />}
+        {this.state.page === "profile" && <NavComponent type="profile" updateState={this.updateState} />}
+
         <Container fluid className="px-4">
           {this.state.page === "home" && (
             <>
@@ -26,7 +32,7 @@ class App extends Component {
             </>
           )}
 
-          {this.state.page === "profile" && <ProfileComponent />}
+          {this.state.page === "profile" && <ProfileComponent updateState={this.updateState} />}
 
           <FooterComponent />
         </Container>
