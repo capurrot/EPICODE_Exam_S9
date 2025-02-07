@@ -41,7 +41,7 @@ class App extends Component {
 
               <FilmComponent filmSearch="Batman" />
               <FilmComponent filmSearch="Superman" />
-              <FilmComponent filmSearch="Star+Trek" />
+              <FilmComponent filmSearch="Star Trek" />
             </>
           )}
 

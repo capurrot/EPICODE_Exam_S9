@@ -13,8 +13,13 @@ class SearchForm extends Component {
   };
 
   handleSubmit = (e) => {
-    e.preventDefault(); // Previene il refresh della pagina
-    this.props.searchFilm({ searchFilm: this.state.searchValue });
+    e.preventDefault();
+    const formattedValue = this.state.searchValue
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+
+    this.props.searchFilm({ searchFilm: formattedValue });
   };
 
   handleTextChange = (e) => {

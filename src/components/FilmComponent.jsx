@@ -13,12 +13,12 @@ class FilmComponent extends Component {
     try {
       this.setState({ isLoading: true });
 
-      const response = await fetch(`http://www.omdbapi.com/?s=${filmSearch}&apikey=54eecc21&page=1`);
+      const response = await fetch(`http://www.omdbapi.com/?s=${filmSearch}&apikey=54eecc21`);
 
       if (response.ok) {
         const films = await response.json();
         this.setState({
-          films: (films.Search || []).slice(0, 6).map((film) => film.Poster),
+          films: (films.Search || []).slice(0, 6).map((film) => film),
         });
       } else if (response.status === 401) {
         throw new Error("401 - non autorizzato");
@@ -50,7 +50,7 @@ class FilmComponent extends Component {
   render() {
     return (
       <>
-        <h4>{this.props.filmSearch.replace(/\+/, " ")}</h4>
+        <h4>{this.props.filmSearch}</h4>
         {this.state.isLoading && (
           <Spinner animation="border" role="status" variant="danger" className="d-block mx-auto p-5">
             <span className="visually-hidden">Loading...</span>
@@ -65,9 +65,15 @@ class FilmComponent extends Component {
           </Alert>
         )}
         <Row className="mb-4" xs={1} sm={2} lg={4} xl={6}>
-          {this.state.films.map((src, index) => (
+          {this.state.films.map((film, index) => (
             <Col key={index} className="mb-2 text-center px-1">
-              <Image src={src} alt="movie picture" className="filmimg" />
+              <Image
+                src={film.Poster}
+                alt={film.Title}
+                className="filmimg"
+                style={{ cursor: "pointer" }}
+                onClick={() => console.log(film)}
+              />
             </Col>
           ))}
         </Row>
