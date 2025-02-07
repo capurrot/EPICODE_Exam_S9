@@ -89,6 +89,9 @@ class FilmComponent extends Component {
             </Col>
           ))}
         </Row>
+
+        {/* Al click sull'immagine faccio partire un modale che contiene le informazioni aggiuntive comprese un redirect su imdb */}
+
         {this.state.showDetails === true && (
           <ModalComponent
             show={this.state.showDetails}

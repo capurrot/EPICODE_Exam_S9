@@ -25,6 +25,7 @@ class App extends Component {
   render() {
     return (
       <>
+        {/*  Attraverso dei corto circuiti imposto quale parte di codice visualizzare in modo che sembri un cambio pagina */}
         {this.state.page === "home" && (
           <NavComponent type="home" updateState={this.updateState} searchFilm={this.searchFilm} />
         )}
@@ -35,6 +36,10 @@ class App extends Component {
           {this.state.page === "home" && (
             <>
               <GenreComponent />
+
+              {/* Qui aggiungo una row per una saga che può essere inserita attraverso l'input di ricerca aggiunto sulla nav.
+                  Nel caso in cui la ricerca non dia risultati esce un alert che informa l'utente della cosa.
+              */}
               {this.state.searchFilm !== "" && (
                 <FilmComponent key={this.state.searchFilm} filmSearch={this.state.searchFilm} />
               )}
