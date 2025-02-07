@@ -1,9 +1,9 @@
-import { Container, Dropdown, ButtonGroup } from "react-bootstrap";
+import { Dropdown, ButtonGroup } from "react-bootstrap";
 import { Grid, Grid3x3 } from "react-bootstrap-icons";
 
 const GenreComponent = () => {
   return (
-    <Container fluid className="d-flex justify-content-between align-items-center mb-4">
+    <div className="d-flex justify-content-between align-items-center mb-4">
       <div className="d-flex align-items-center">
         <h2 className="mb-0">TV Shows</h2>
         <Dropdown as={ButtonGroup} className="ms-4 mt-1">
@@ -18,10 +18,10 @@ const GenreComponent = () => {
         </Dropdown>
       </div>
       <div>
-        <Grid className="icons me-2" size={24} />
-        <Grid3x3 className="icons" size={24} />
+        <Grid className="icons me-2" />
+        <Grid3x3 className="icons" />
       </div>
-    </Container>
+    </div>
   );
 };
 

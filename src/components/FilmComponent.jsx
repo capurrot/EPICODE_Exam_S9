@@ -1,37 +1,54 @@
 import { Component } from "react";
-import { Container, Row, Col, Image, Spinner } from "react-bootstrap";
+import { Row, Col, Image, Spinner } from "react-bootstrap";
 
 class FilmComponent extends Component {
   state = {
     films: [],
     isLoading: false,
+    hasError: false,
+    errorMessage: "",
   };
 
-  fetchFilms = async (filmSearchTitle) => {
+  fetchFilms = async (filmSearch) => {
     try {
       this.setState({ isLoading: true });
 
-      const response = await fetch(`http://www.omdbapi.com/?s=${filmSearchTitle}&apikey=54eecc21&page=1`);
-      const data = await response.json();
+      const response = await fetch(`http://www.omdbapi.com/?s=${filmSearch}&apikey=54eecc21&page=1`);
 
-      this.setState({
-        films: (data.Search || []).slice(0, 6).map((movie) => movie.Poster),
-        isLoading: false,
-      });
+      if (response.ok) {
+        const films = await response.json();
+        this.setState({
+          films: (films.Search || []).slice(0, 6).map((movie) => movie.Poster),
+        });
+      } else if (response.status === 404) {
+        throw new Error("404 - risorsa inesistente");
+      } else if (response.status === 500) {
+        throw new Error("500 - Errore interno del server");
+      } else if (response.status === 403) {
+        throw new Error("403 - Accesso negato");
+      } else if (response.status === 429) {
+        throw new Error("429 - Troppe richieste, riprova più tardi");
+      } else if (response.status === 503) {
+        throw new Error("503 - Servizio non disponibile, riprova più tardi");
+      } else {
+        throw new Error("Errore nel reperimento dei dati");
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
+      this.setState({ hasError: true, errorMessage: error.message });
+    } finally {
       this.setState({ isLoading: false });
     }
   };
 
   componentDidMount() {
-    this.fetchFilms(this.props.filmSearchTitle);
+    this.fetchFilms(this.props.filmSearch);
   }
 
   render() {
     return (
-      <Container fluid className="px-4">
-        <h4>{this.props.filmSearchTitle}</h4>
+      <>
+        <h4>{this.props.filmSearch.replace(/\+/, " ")}</h4>
         {this.state.isLoading && (
           <Spinner animation="border" role="status" variant="danger" className="d-block mx-auto p-3">
             <span className="visually-hidden">Loading...</span>
@@ -44,7 +61,7 @@ class FilmComponent extends Component {
             </Col>
           ))}
         </Row>
-      </Container>
+      </>
     );
   }
 }
