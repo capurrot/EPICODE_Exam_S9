@@ -59,6 +59,11 @@ class FilmComponent extends Component {
         {this.state.hasError && (
           <Alert variant="danger">{this.state.errorMessage ? this.state.errorMessage : "Errore generico"}</Alert>
         )}
+        {(this.state.films.length === 0) & (this.state.isLoading !== true) && (
+          <Alert variant="danger" className="mb-5">
+            Nessun Film con ricerca {'"' + this.props.filmSearch + '"'} trovato
+          </Alert>
+        )}
         <Row className="mb-4" xs={1} sm={2} lg={4} xl={6}>
           {this.state.films.map((src, index) => (
             <Col key={index} className="mb-2 text-center px-1">
