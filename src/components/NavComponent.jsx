@@ -1,6 +1,6 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Search, Bell, PersonCircle } from "react-bootstrap-icons";
-import Logo from "./Logo";
+import Logo from "./LogoComponent";
 
 function NavComponent() {
   return (
