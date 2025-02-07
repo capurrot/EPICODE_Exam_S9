@@ -1,6 +1,7 @@
 import { Navbar, Container, Nav, Dropdown, ButtonGroup } from "react-bootstrap";
-import { Search, Bell, PersonCircle } from "react-bootstrap-icons";
+import { Bell, PersonCircle } from "react-bootstrap-icons";
 import Logo from "./LogoComponent";
+import SearchForm from "./SearchComponent";
 
 function NavComponent() {
   return (
@@ -29,7 +30,7 @@ function NavComponent() {
             </Nav.Link>
           </Nav>
           <div className="d-flex align-items-center">
-            <Search className="icons" />
+            <SearchForm />
             <div id="kids" className="fw-bold">
               KIDS
             </div>

@@ -52,7 +52,7 @@ class FilmComponent extends Component {
       <>
         <h4>{this.props.filmSearch.replace(/\+/, " ")}</h4>
         {this.state.isLoading && (
-          <Spinner animation="border" role="status" variant="danger" className="d-block mx-auto p-3">
+          <Spinner animation="border" role="status" variant="danger" className="d-block mx-auto p-5">
             <span className="visually-hidden">Loading...</span>
           </Spinner>
         )}

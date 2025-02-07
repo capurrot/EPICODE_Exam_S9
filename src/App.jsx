@@ -4,6 +4,9 @@ import FilmComponent from "./components/FilmComponent";
 import FooterComponent from "./components/FooterComponent";
 import GenreComponent from "./components/GenreComponent";
 import NavComponent from "./components/NavComponent";
+{
+  /* import ProfileComponent from "./components/ProfileComponent"; */
+}
 
 function App() {
   return (
@@ -16,6 +19,10 @@ function App() {
         <FilmComponent filmSearch="Star+Trek" />
         <FooterComponent />
       </Container>
+      {/*
+      Commento la parte relativa al componente Profile da terminare 
+      
+      <ProfileComponent />*/}
     </>
   );
 }
