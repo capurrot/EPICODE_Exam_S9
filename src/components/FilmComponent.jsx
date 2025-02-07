@@ -7,6 +7,7 @@ class FilmComponent extends Component {
     isLoading: false,
     hasError: false,
     errorMessage: "",
+    showDetails: false,
   };
 
   fetchFilms = async (filmSearch) => {
@@ -47,6 +48,15 @@ class FilmComponent extends Component {
     this.fetchFilms(this.props.filmSearch);
   }
 
+  handleShowDetails = (film) => {
+    this.setState({ showModal: true });
+    console.log(film);
+  };
+
+  handleCloseDetails = () => {
+    this.setState({ showModal: false });
+  };
+
   render() {
     return (
       <>
@@ -71,8 +81,8 @@ class FilmComponent extends Component {
                 src={film.Poster}
                 alt={film.Title}
                 className="filmimg"
+                onClick={() => this.handleShowDetails(film)}
                 style={{ cursor: "pointer" }}
-                onClick={() => console.log(film)}
               />
             </Col>
           ))}
