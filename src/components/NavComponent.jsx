@@ -36,7 +36,7 @@ function NavComponent(props) {
           </Nav>
           {props.type !== "profile" && (
             <div className="d-flex align-items-center gap-3">
-              <SearchForm />
+              <SearchForm searchFilm={props.searchFilm} />
               <span className="fw-bold text-white">KIDS</span>
               <Bell className="icons" />
 

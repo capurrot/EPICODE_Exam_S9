@@ -10,11 +10,15 @@ import ProfileComponent from "./components/ProfileComponent";
 class App extends Component {
   state = {
     page: "home",
-    searchFilm: "",
+    searchFilm: "Lord Of Rings",
   };
 
   updateState = (page) => {
     this.setState(page);
+  };
+
+  searchFilm = (searchFilm) => {
+    this.setState(searchFilm);
   };
 
   render() {
