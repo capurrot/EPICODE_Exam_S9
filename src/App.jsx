@@ -1,4 +1,5 @@
 import "./App.css";
+import FilmComponent from "./components/FilmComponent";
 import FooterComponent from "./components/FooterComponent";
 import GenreComponent from "./components/GenreComponent";
 import NavComponent from "./components/NavComponent";
@@ -8,6 +9,9 @@ function App() {
     <>
       <NavComponent />
       <GenreComponent />
+      <FilmComponent filmSearchTitle="Batman" />
+      <FilmComponent filmSearchTitle="Superman" />
+      <FilmComponent filmSearchTitle="Avengers" />
       <FooterComponent />
     </>
   );

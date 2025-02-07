@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, NavbarBrand } from "react-bootstrap";
 import { Search, Bell, PersonCircle } from "react-bootstrap-icons";
 import Logo from "./LogoComponent";
 
@@ -6,9 +6,9 @@ function NavComponent() {
   return (
     <Navbar expand="lg" data-bs-theme="dark" variant="dark" style={{ backgroundColor: "#221f1f" }}>
       <Container fluid>
-        <Navbar.Brand href="#home">
+        <NavbarBrand href="#home">
           <Logo />
-        </Navbar.Brand>
+        </NavbarBrand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
