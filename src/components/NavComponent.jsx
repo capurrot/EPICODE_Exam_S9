@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav, NavbarBrand } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import { Search, Bell, PersonCircle } from "react-bootstrap-icons";
 import Logo from "./LogoComponent";
 
@@ -6,9 +6,9 @@ function NavComponent() {
   return (
     <Navbar expand="lg" data-bs-theme="dark" variant="dark" style={{ backgroundColor: "#221f1f" }}>
       <Container fluid>
-        <NavbarBrand href="#home">
+        <Navbar.Brand href="#home">
           <Logo />
-        </NavbarBrand>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -28,7 +28,7 @@ function NavComponent() {
               My List
             </Nav.Link>
           </Nav>
-          <div className="d-flex align-items-center gap-3">
+          <div className="d-flex align-items-center">
             <Search className="icons" />
             <div id="kids" className="fw-bold">
               KIDS

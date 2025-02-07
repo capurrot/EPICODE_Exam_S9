@@ -4,7 +4,7 @@ import { Facebook, Instagram, Twitter, Youtube } from "react-bootstrap-icons";
 const FooterComponent = () => {
   return (
     <footer className="mt-5">
-      <Container>
+      <Container fluid>
         <Row className="justify-content-center">
           <Col md={6}>
             <Row>
@@ -74,13 +74,13 @@ const FooterComponent = () => {
             </Row>
             <Row>
               <Col className="mb-2">
-                <Button variant="secondary" size="sm" className="rounded-0 mt-3">
+                <Button size="sm" className="footer-button rounded-0 mt-3">
                   Service Code
                 </Button>
               </Col>
             </Row>
             <Row>
-              <Col className="mb-2 mt-2 text-center">&copy; 1997-2025 Netflix, Inc.</Col>
+              <Col className="mb-2 mt-2 copyright">&copy; 1997-2025 Netflix, Inc.</Col>
             </Row>
           </Col>
         </Row>
