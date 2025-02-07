@@ -1,9 +1,9 @@
-import { Container, Row, Col, Button, Form, Dropdown, DropdownButton } from "react-bootstrap";
+import { Row, Col, Button, Form, Dropdown, DropdownButton } from "react-bootstrap";
 import { PersonCircle } from "react-bootstrap-icons";
 
 const ProfileComponent = (props) => {
   return (
-    <Container className="text-light" data-bs-theme="dark" style={{ width: "50%" }}>
+    <div className="text-light pb-5 profile-container" data-bs-theme="dark">
       <h1 className="display-5 fw-bold mb-0 text-white">Edit Profile</h1>
       <hr />
       <Row>
@@ -58,7 +58,7 @@ const ProfileComponent = (props) => {
           DELETE PROFILE
         </Button>
       </div>
-    </Container>
+    </div>
   );
 };
 

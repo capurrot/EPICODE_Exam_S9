@@ -14,7 +14,7 @@ function NavComponent(props) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            {props.type !== "profile" && (
+            {props.type === "home" && (
               <>
                 <Nav.Link href="#home" className="fw-bold">
                   Home
@@ -34,7 +34,7 @@ function NavComponent(props) {
               </>
             )}
           </Nav>
-          {props.type !== "profile" && (
+          {props.type === "home" && (
             <div className="d-flex align-items-center gap-3">
               <SearchForm searchFilm={props.searchFilm} />
               <span className="fw-bold text-white">KIDS</span>
@@ -53,7 +53,9 @@ function NavComponent(props) {
                     Profile
                   </Dropdown.Item>
                   <Dropdown.Divider />
-                  <Dropdown.Item href="#">Settings</Dropdown.Item>
+                  <Dropdown.Item href="#" onClick={() => props.updateState({ page: "settings" })}>
+                    Settings
+                  </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
