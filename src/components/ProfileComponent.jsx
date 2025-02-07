@@ -14,7 +14,7 @@ const ProfileComponent = () => {
           <Form>
             <fieldset disabled>
               <Form.Group className="mb-3">
-                <Form.Control type="text" placeholder="Strive Student" className="bg-secondary" />
+                <Form.Control type="text" placeholder="My Profile" className="bg-secondary" />
               </Form.Group>
             </fieldset>
           </Form>
