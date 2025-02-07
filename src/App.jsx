@@ -14,7 +14,6 @@ function App() {
         <FilmComponent filmSearch="Batman" />
         <FilmComponent filmSearch="Superman" />
         <FilmComponent filmSearch="Star+Trek" />
-
         <FooterComponent />
       </Container>
     </>
