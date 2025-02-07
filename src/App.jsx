@@ -10,6 +10,7 @@ import ProfileComponent from "./components/ProfileComponent";
 class App extends Component {
   state = {
     page: "home",
+    searchFilm: "",
   };
 
   updateState = (page) => {
@@ -26,6 +27,8 @@ class App extends Component {
           {this.state.page === "home" && (
             <>
               <GenreComponent />
+              {this.state.searchFilm !== "" && <FilmComponent filmSearch={this.state.searchFilm} />}
+
               <FilmComponent filmSearch="Batman" />
               <FilmComponent filmSearch="Superman" />
               <FilmComponent filmSearch="Star+Trek" />
