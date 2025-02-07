@@ -15,10 +15,10 @@ class SearchForm extends Component {
   handleTextChange = (e) => {
     const value = e.target.value;
     this.setState({ searchValue: value });
+    this.props.searchFilm({ searchFilm: value });
   };
 
   render() {
-    console.log(this.props);
     return (
       <Form className="d-flex align-items-center" role="search">
         <Collapse in={this.state.open}>

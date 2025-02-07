@@ -10,7 +10,7 @@ import ProfileComponent from "./components/ProfileComponent";
 class App extends Component {
   state = {
     page: "home",
-    searchFilm: "Lord Of Rings",
+    searchFilm: "",
   };
 
   updateState = (page) => {
@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <>
-        {this.state.page === "home" && <NavComponent updateState={this.updateState} />}
+        {this.state.page === "home" && <NavComponent updateState={this.updateState} searchFilm={this.searchFilm} />}
         {this.state.page === "profile" && <NavComponent type="profile" updateState={this.updateState} />}
 
         <Container fluid className="px-4">
